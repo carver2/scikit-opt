@@ -1,3 +1,7 @@
+# windows中调试源码添加的工作路径
+import sys
+sys.path.append("C:\\Users\\Administrator\\Desktop\\我的坚果云\\A博士文件\\A科研工作\\03代码库\\scikit-opt")
+
 import numpy as np
 
 
