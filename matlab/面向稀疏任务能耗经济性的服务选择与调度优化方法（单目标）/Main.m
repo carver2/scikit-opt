@@ -61,6 +61,11 @@ for schedule_i = 1:length(candidate_schedule_strategy)
         Population_crossed = cross(Population, cross_probability); % 交叉
         Population_mutated = mutate(Population, mutation_probability, candidate_service_num); % 变异
         Population_combined = combine(Population, Population_crossed, Population_mutated); % 合并原始、交叉、变异种群的个体
+% %         %test
+%         population_size = 1;
+%         gen_max = 1;
+% %         Population_combined = [1,3,4,2,5,5,1,1,2,5];
+% %         %test
 
         %% 占用调度和物流
         [Tl, Cl] = logistics(Population_combined, Distance_cell, T_unit_dist, C_unit_dist); % 计算种群中每个个体的物流时间和物流成本
@@ -76,10 +81,18 @@ for schedule_i = 1:length(candidate_schedule_strategy)
         %% 计算Population_combined种群的预热能耗Energy，并进行无量纲化
         E = energy_preheating(Eh, Population_combined, Th, Tc, Idle, Start_candidate_service, End_candidate_service); % 各候选服务的预热能耗
         Energy = sum(E, 2); % 累加种群中个体的总预热能耗
+%         % test
+%         Energy = 225.2576;        
+%         % test
         Energy_dimensionless = dimensionless_Energy(Energy, Energy_max); % 预热能耗无量纲化
 
         %% 计算Population_combined种群的任务QoS，并进行无量纲化
         [Quality, Cost, Time] = criteria(Population_combined, Q, Cs, End_candidate_service, Cl); % 获取种群中每个个体对应的完成质量、完成成本、完成时间
+% %         % test
+%         Quality = 0.8391;
+%         Cost = 5152.5;
+%         Time = 470.5116;
+% %         % test
         [Quality_dimensionless, Cost_dimensionless, Time_dimensionless] = dimensionless_QoS(Quality, Cost, Time, Time_required_max, Cost_required_max, Quality_required_min, Time_min, Cost_min, Quality_max); % 数据无量纲化
 
         %% 计算适应度

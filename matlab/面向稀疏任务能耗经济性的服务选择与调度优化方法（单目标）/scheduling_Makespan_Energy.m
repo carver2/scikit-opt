@@ -102,7 +102,7 @@ for k = 1:population_size
                 end_time_new = start_time_next_subtask-logistics_duration; % 当前子任务的结束时间设置为下一个子任务的开始时间-物流时间
                 start_time_new = end_time_new-service_duration; 
                 cohesion_new = get_cohesion(Th_candidate_service,Tc_candidate_service,Periods,start_time_new,end_time_new);
-                if cohesion < cohesion_new % 如果调度后的衔接度大于调度前的衔接度，则修改子任务执行时间
+                if cohesion <= cohesion_new % 如果调度后的衔接度大于调度前的衔接度，则修改子任务执行时间
                     start_time = start_time_new;
                     end_time = end_time_new;
                 end
