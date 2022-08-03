@@ -14,19 +14,19 @@ Energy_dimensionless_value = ones(size(Avg_Std_idle, 1), 2);
 QoS_Fitness_value = ones(size(Avg_Std_idle, 1), 2);
 filename_set = [
            1111;
-           1011;
-           1101;
-           1110;
-           1100;
+%            1011;
+%            1101;
+%            1110;
+%            1100;
 %            1010;
-           1001;
+%            1001;
             ];
 
 for ii = 1:size(Avg_Std_idle, 1)
 
     for jj = 1:size(filename_set, 1)
-        source_file = ['C:\Users\Administrator\Documents\我的坚果云\A博士文件\A科研工作\03代码库\Matlab\模拟数据集\simulationData', num2str(Avg_Std_idle(ii, 1) * 10), num2str(Avg_Std_idle(ii, 2) * 10), '.xlsx'];
-        objective_file = 'C:\Users\Administrator\Documents\我的坚果云\A博士文件\A科研工作\03代码库\Matlab\模拟数据集\simulationData.xlsx';
+        source_file = ['模拟数据集\simulationData', num2str(Avg_Std_idle(ii, 1) * 10), num2str(Avg_Std_idle(ii, 2) * 10), '.xlsx'];
+        objective_file = '模拟数据集\simulationData.xlsx';
         source_Data_M = 'Data_M';
         objective_Data_M = [source_Data_M, num2str(Avg_Std_idle(ii, 1) * 10), num2str(Avg_Std_idle(ii, 2) * 10), '-', num2str(filename_set(jj))]; % 目标文件Data_M-51-1111
         source_Data_M_Fitness = 'Data_M-Fitness';
@@ -48,11 +48,11 @@ for ii = 1:size(Avg_Std_idle, 1)
             'source_Data_M', 'objective_Data_M', ...
             'source_Data_M_E', 'objective_Data_M_E')
         %% 生成M方法和M_E方法的目标值收敛数据，以及M_E方法的甘特图数据
-%         clear
-%         Main
-%         load('current_parameters2')
-%         movefile([source_Data_M, '.mat'], [objective_Data_M, '.mat'])
-%         movefile([source_Data_M_E, '.mat'], [objective_Data_M_E, '.mat'])
+        clear
+        Main
+        load('current_parameters2')
+        movefile([source_Data_M, '.mat'], [objective_Data_M, '.mat'])
+        movefile([source_Data_M_E, '.mat'], [objective_Data_M_E, '.mat'])
 
         %% 画M方法和M_E方法的目标收敛图，以及M_E方法的甘特图
         % 画目标收敛图

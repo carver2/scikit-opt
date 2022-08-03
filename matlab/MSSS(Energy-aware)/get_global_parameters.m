@@ -3,10 +3,10 @@ ordertime = 60;
 Time_required_max = 800;
 Cost_required_max = 7000;
 Quality_required_min = 0.6;
-w_Energy = 0.5;
-w_Quality = 0.0;
-w_Cost = 0.0;
-w_Time = 0.5;
+w_Energy = 0.25;
+w_Quality = 0.25;
+w_Cost = 0.25;
+w_Time = 0.25;
 
 %% 平台参数
 T_unit_dist = 0.2;
@@ -15,7 +15,7 @@ elastic_coefficient = 1.2;
 Time_elasticity = Time_required_max*elastic_coefficient;
 
 %% 用xlsread函数来读取xlsx文件
-file_path = 'C:\Users\Administrator\Documents\我的坚果云\A博士文件\A科研工作\03代码库\Matlab\模拟数据集\simulationData.xlsx';
+file_path = '模拟数据集\simulationData.xlsx';
 sheet = 'Sheet1';
 range = 'A2:K51';
 [subtask_num,candidate_service_num,Q,Ts,Cs,Th,Tc,Eh,Idle,P] = data_extract(file_path, sheet, range);
